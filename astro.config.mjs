@@ -10,5 +10,8 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), tailwind()],
   server: {
     port: 3000, // 指定固定端口
+  },
+  build: {
+    assetsPrefix: '/harry-portfolio' // 確保靜態資源路徑正確
   }
 });
