@@ -26,8 +26,13 @@ jobs:
       - name: Build website
         run: npm run build
 
+      - name: List build output
+        run: ls -la dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
+        env:
+          ACTIONS_STEP_DEBUG: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
@@ -35,3 +40,6 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: 'deploy: update site'
+
+      - name: Show remote branches
+        run: git branch -a
