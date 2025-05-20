@@ -5,8 +5,10 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astrofy-template.netlify.app',
-  // site: 'https://harryfan.github.io',
-  // base: "/harry-portfolio/", // 部署子目錄
-  integrations: [mdx(), sitemap(), tailwind()]
+  site: 'https://harryfan.github.io',
+  base: process.env.NODE_ENV === 'production' ? '/harry-portfolio' : '', // 只在生產環境使用 base
+  integrations: [mdx(), sitemap(), tailwind()],
+  server: {
+    port: 3000, // 指定固定端口
+  }
 });
