@@ -5,13 +5,14 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://harryfan.github.io',
-  base: '/harry-portfolio/', // GitHub Pages 子目錄
+  site: 'https://harryfan.github.io/harry-portfolio', // 在 site URL 中包含子目錄
+  base: '', // 清空 base，讓所有路徑相對於根目錄
   integrations: [mdx(), sitemap(), tailwind()],
   server: {
     port: 3000, // 指定固定端口
   },
   build: {
-    assetsPrefix: '/harry-portfolio' // 確保靜態資源路徑正確
+    assets: '_astro', // 使用相對路徑
+    assetsPrefix: '' // 清空前綴
   }
 });
