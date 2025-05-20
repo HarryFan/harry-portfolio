@@ -5,7 +5,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://harryfan.github.io/harry-portfolio',
+  site: 'https://harryfan.github.io',
   base: '/harry-portfolio', // GitHub Pages 子目錄
   integrations: [mdx(), sitemap(), tailwind()],
   server: {
