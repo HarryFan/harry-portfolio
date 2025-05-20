@@ -12,11 +12,21 @@
 
 ```js
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  site: 'https://harryfan.github.io',
-  base: '/harry-portfolio/',
-  outDir: './dist',
+  site: 'https://harryfan.github.io/harry-portfolio', // 包含子路徑
+  base: '', // 設為空字串
+  integrations: [mdx(), sitemap(), tailwind()],
+  server: {
+    port: 3000,
+  },
+  build: {
+    assets: '_astro', // 使用相對路徑
+    assetsPrefix: '' // 清空前綴
+  }
 });
 ```
 
@@ -83,3 +93,7 @@ git push origin gh-pages
 - GitHub Pages 部署可能需要幾分鐘時間才會更新
 - 確保 GitHub 儲存庫設定中已將 GitHub Pages 來源設為 gh-pages 分支
 - `.nojekyll` 檔案應保留在 gh-pages 分支中，以防止 GitHub Pages 使用 Jekyll 處理網站
+- 如果遇到資源載入問題，請檢查以下幾點：
+  - 確認 `astro.config.mjs` 中的 `site` 和 `base` 設定正確
+  - 確保所有靜態資源（圖片、CSS、JS）使用根路徑（如 `/image.png`）
+  - 清除瀏覽器快取後重新載入頁面
