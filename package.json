@@ -5,22 +5,19 @@
   "version": "3.0.0",
   "private": true,
   "scripts": {
-
     "build": "astro build",
-
-    "deploy": "gh-pages -d dist" ,
+    "deploy": "gh-pages -d dist",
     "dev": "astro dev",
     "start": "astro dev",
-
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.0.3",
+    "@astrojs/mdx": "^4.2.6",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.1",
     "@astrojs/tailwind": "^5.0.3",
-    "astro": "^4.0.2",
+    "astro": "^5.7.13",
     "daisyui": "^4.4.10",
     "dayjs": "^1.11.9",
     "sharp": "^0.32.6",

@@ -1,7 +1,8 @@
 ---
 const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
 import { Image } from "astro:assets";
-const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
+// 使用 BASE_URL 確保路徑正確
+const tag_url = `${import.meta.env.BASE_URL}blog/tag`;
 ---
 
 <div
@@ -31,7 +32,7 @@ const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
           {
             tags &&
               tags.map((tag) => (
-                <a href={`${tag_url}/${tag}`} class="badge badge-outline">
+                <a href={`${import.meta.env.BASE_URL}blog/tag/${tag}`} class="badge badge-outline">
                   {tag}
                 </a>
               ))
