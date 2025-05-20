@@ -3,5 +3,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  base: '/harry-portfolio/', // 子路徑部署
+  base: "/harry-portfolio/", // 部署子目錄
 });
