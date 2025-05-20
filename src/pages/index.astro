@@ -1,11 +1,32 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const featuredProjects = projects.filter(project => project.featured);
 ---
 
 <Layout>
-	<Welcome />
+  <main class="container mx-auto px-4 py-12">
+    <header class="text-center mb-16">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">我的作品集</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">這裡展示了我過去的專案作品，涵蓋網頁開發、應用程式等多個領域。</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {featuredProjects.map(project => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </main>
 </Layout>
+
+<style>
+  @import 'tailwindcss/base';
+  @import 'tailwindcss/components';
+  @import 'tailwindcss/utilities';
+  
+  body {
+    background-color: #f9fafb;
+  }
+</style>
