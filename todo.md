@@ -2,10 +2,12 @@
 
 ## 🔧 專案初始化
 
-- [x] 確認 `astro.config.mjs` 中 `site` 設定為 `https://harryfan.github.io/harry-portfolio`
-- [x] 設定 `base` 為空字串 `''`
-- [x] 設置 `build.assets: '_astro'` 以使用相對路徑
+- [x] 確認 `astro.config.mjs` 中 `site` 設定為 `https://harryfan.github.io`
+- [x] 設定 `base` 為 `/harry-portfolio/`（必須前後都有斜線）
+- [x] 設置 `build.assets: 'assets'` 使用自定義資源目錄
+- [x] 停用 Vite 的檔案名雜湊碼，確保 CSS/JS 檔案名穩定
 - [x] 確認手動部署流程正常運作
+- [x] 使用 Python 腳本修正全站絕對路徑
 
 ## 🖼️ 首頁內容設計
 
@@ -33,16 +35,23 @@
 ## 🚀 部署與測試
 
 - [x] 執行 `git add . && git commit -m "deploy: 更新作品集" && git push`
-- [ ] 測試所有頁面是否正常顯示
-  - [ ] 首頁
-  - [ ] 作品集頁面
-  - [ ] 部落格文章
-  - [ ] 聯絡表單
-- [ ] 測試資源載入
-  - [ ] 圖片
-  - [ ] CSS 樣式
-  - [ ] JavaScript 功能
-- [ ] 測試響應式設計
-  - [ ] 桌面版
-  - [ ] 平板電腦
-  - [ ] 手機版
+- [x] 測試所有頁面是否正常顯示
+  - [x] 首頁
+  - [x] 作品集頁面
+  - [x] 部落格文章
+  - [x] 聯絡表單
+- [x] 測試資源載入
+  - [x] 圖片（使用 import.meta.env.BASE_URL 引用）
+  - [x] CSS 樣式（停用雜湊碼，確保穩定引用）
+  - [x] JavaScript 功能（正確載入路徑）
+- [x] 測試響應式設計
+  - [x] 桌面版
+  - [x] 平板電腦
+  - [x] 手機版
+
+## 📝 文檔與知識分享
+
+- [x] 更新系統架構文檔，說明路徑處理方式
+- [x] 創建 Astro 子目錄部署指南，給未來專案參考
+- [x] 記錄遇到的問題與解決方案
+- [x] 分享 Python 腳本以自動處理路徑問題
